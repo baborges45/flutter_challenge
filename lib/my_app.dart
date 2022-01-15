@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_challenge/modules/bindings/data_bindings.dart';
+import 'package:get/get.dart';
 
 import 'screens/home/home_page.dart';
 
@@ -8,13 +10,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+    return GetMaterialApp(
+      getPages: [
+        GetPage(
+          name: '/',
+          page: () => HomePage(),
+          binding: DataBindings(),
+        ),
+      ],
       debugShowCheckedModeBanner: false,
-      home: const HomePage(),
     );
   }
 }
